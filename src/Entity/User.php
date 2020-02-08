@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- */
-class User implements UserInterface
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+*/
+class User 
 {
     /**
      * @ORM\Id()
@@ -26,6 +27,8 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $password;
+
+    public $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
